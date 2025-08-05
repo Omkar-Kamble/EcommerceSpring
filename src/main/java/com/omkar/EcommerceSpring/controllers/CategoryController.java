@@ -22,4 +22,5 @@ public class CategoryController {
     public List<CategoryDTO> getAllCategories() throws IOException {
         return this.categoryService.getAllCategories();
     }
+
 }

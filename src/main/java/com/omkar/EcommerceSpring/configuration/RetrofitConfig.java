@@ -1,6 +1,8 @@
 package com.omkar.EcommerceSpring.configuration;
 
+import com.omkar.EcommerceSpring.gateway.api.FakeStoreProductApi;
 import com.omkar.EcommerceSpring.gateway.api.FakesStoreCategoryApi;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import retrofit2.Retrofit;
@@ -9,10 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Configuration
 public class RetrofitConfig {
 
+    @Value("${BASE_URL}")
+    private String apiBaseUrl;
+
     @Bean
     public Retrofit retrofit() {
         return new Retrofit.Builder()
-                .baseUrl("https://fakestoreapi.in/api/")
+                .baseUrl(apiBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -20,5 +25,10 @@ public class RetrofitConfig {
     @Bean
     public FakesStoreCategoryApi fakesStoreCategoryApi(Retrofit retrofit) {
         return retrofit.create(FakesStoreCategoryApi.class);
+    }
+
+    @Bean
+    public FakeStoreProductApi fakeStoreProductApi(Retrofit retrofit) {
+        return retrofit.create(FakeStoreProductApi.class);
     }
 }
