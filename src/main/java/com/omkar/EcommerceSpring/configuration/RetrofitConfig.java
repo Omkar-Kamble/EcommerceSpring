@@ -1,7 +1,9 @@
 package com.omkar.EcommerceSpring.configuration;
 
+import com.google.gson.Gson;
 import com.omkar.EcommerceSpring.gateway.api.FakeStoreProductApi;
 import com.omkar.EcommerceSpring.gateway.api.FakesStoreCategoryApi;
+import okhttp3.OkHttpClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
