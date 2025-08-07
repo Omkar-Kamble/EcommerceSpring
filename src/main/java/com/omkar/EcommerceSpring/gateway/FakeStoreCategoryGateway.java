@@ -1,7 +1,7 @@
 package com.omkar.EcommerceSpring.gateway;
 
 import com.omkar.EcommerceSpring.dto.CategoryDTO;
-import com.omkar.EcommerceSpring.dto.FakeStoreCategoryResponseDTO;
+import com.omkar.EcommerceSpring.dto.FakeStoreCategoryDTO;
 import com.omkar.EcommerceSpring.gateway.api.FakesStoreCategoryApi;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class FakeStoreCategoryGateway implements ICategoryGateway {
 
     @Override
     public List<CategoryDTO> getAllCategories() throws IOException {
-        FakeStoreCategoryResponseDTO response = this.fakesStoreCategoryApi.getAllFakeCategories().execute().body();
+        FakeStoreCategoryDTO response = this.fakesStoreCategoryApi.getAllFakeCategories().execute().body();
         if(response == null) {
             throw new IOException("Failed to fetch categories from FakeStore API");
         }

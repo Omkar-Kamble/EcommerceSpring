@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FakeStoreCategoryResponseDTO {
+public class FakeStoreCategoryDTO {
     private String status;
     private String message;
     private List<String> categories;
